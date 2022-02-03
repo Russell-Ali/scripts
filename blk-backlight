@@ -1,0 +1,16 @@
+#!/bin/sh
+
+value=`cat /sys/class/backlight/amdgpu_bl0/brightness`
+percent=$(( ($value*100/255/2)*2 ))
+
+if (( $value >= 204 )); then
+    echo "󰽢 ${percent}%"
+elif (( $value >= 153 )); then
+    echo "󰽨 ${percent}%"
+elif (( $value >= 102 )); then
+    echo "󰽡 ${percent}%"
+elif (( $value >= 51 )); then
+    echo "󰽧 ${percent}%"
+else
+    echo "󰽤 ${percent}%"
+fi

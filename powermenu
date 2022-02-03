@@ -1,0 +1,13 @@
+#!/bin/sh
+
+selection="$(echo -e 'Cancel\nShutdown\nReboot\nSuspend' | dmenu -c -l 4 -h 28 -fn Dejavu-12 -bw 2)"
+if [ "$selection" == 'Shutdown' ]
+then
+	shutdown now
+elif [ "$selection" == 'Reboot' ]
+then
+	reboot
+elif [ "$selection" == 'Suspend' ]
+then
+	systemctl suspend
+fi

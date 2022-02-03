@@ -1,0 +1,45 @@
+#!/bin/sh
+
+lvl=`cat /sys/class/power_supply/BAT1/capacity`
+level=$((lvl+0))
+ac=`cat /sys/class/power_supply/ACAD/online`
+isAC=$((ac+0))
+
+func() {
+    value=`cat /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode`
+    if [[ $value -eq 1 ]]; then
+        echo "󰒘 " && exit 0
+    fi
+}
+
+conserv="$(func)"
+
+if [ $level -ge 99 ]; then
+    echo "󰁹 $level"
+else
+    if [ $isAC -eq 1 ]; then
+        if [ $level -le 20 ]; then
+            echo "${conserv}󰂆 ${level}%"
+        elif [ $level -le 40 ]; then
+            echo "${conserv}󰂈 ${level}%"
+        elif [ $level -le 60 ]; then
+            echo "${conserv}󰢝 ${level}%"
+        elif [ $level -le 80 ]; then
+            echo "${conserv}󰂉 ${level}%"
+        else
+            echo "${conserv}󰂋 ${level}%"
+        fi
+    else
+        if [ $level -le 20 ]; then
+            echo "󰁺 ${level}%"
+        elif [ $level -le 40 ]; then
+            echo "󰁼 ${level}%"
+        elif [ $level -le 60 ]; then
+            echo "󰁽 ${level}%"
+        elif [ $level -le 80 ]; then
+            echo "󰂀 ${level}%"
+        else
+            echo "󰂂 ${level}%"
+        fi
+    fi
+fi
