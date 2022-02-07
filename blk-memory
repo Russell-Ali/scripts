@@ -1,0 +1,13 @@
+#!/bin/sh
+
+total_mem=$(free --giga | grep Mem | awk '{print $2}') #in GB
+total_swap=$(free --giga | grep Swap | awk '{print $2}') #in GB
+used_mem=$(free --mega | grep Mem | awk '{print $3}') #in MB
+used_swap=$(free --mega | grep Swap | awk '{print $3}') #in MB
+
+if (( "$total_swap" != 0 ));then
+    echo "󰍛  ${used_mem}M / ${total_mem}G | 󰓡  ${used_swap}M / ${total_swap}G"
+    exit;
+else
+    echo "󰍛  ${used_mem}M / ${total_mem}G"; exit
+fi
