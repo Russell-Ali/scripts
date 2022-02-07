@@ -11,8 +11,6 @@ scripts
 git clone https://github.com/Russell-Ali/scripts
 ```
 2. Add scripts to your path:
-<br>
-*for zsh and bash add this to your rc file*
 
 ```
 export PATH="$HOME/scripts:$PATH"
