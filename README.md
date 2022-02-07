@@ -23,6 +23,7 @@ could look like this on your device:
 1. Clone the repo:
 ```
 git clone https://github.com/Russell-Ali/scripts
+
 ```
 2. Add scripts to your path:
 
