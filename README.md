@@ -41,4 +41,4 @@ or
 source ~/.bashrc
 ```
 
-4. Finally add them to your blocks.def.h ***Make sure they start with "blk-"***
+4. Finally add them to your blocks.def.h
