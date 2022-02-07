@@ -20,6 +20,7 @@ could look like this on your device:
 /sys/class/power_supply/BAT0/capacity
 ```
 <h3>How to install it though</h3>
+
 1. Clone the repo:
 
 ```
