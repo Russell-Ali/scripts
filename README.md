@@ -6,6 +6,20 @@ scripts
 <br>
 *You can delete everything else. They aren't meant to be used with dwmblocks*
 <br>
+<br>
+*Note that some scripts need small editing since they directly access your system files with absolute path.*
+<br>
+***Ex:***
+<br>
+```
+/sys/class/power_supply/BAT1/capacity
+```
+could look like this on your device:
+
+```
+/sys/class/power_supply/BAT0/capacity
+```
+<h3>How to install it though</h3>
 1. Clone the repo:
 ```
 git clone https://github.com/Russell-Ali/scripts

@@ -4,15 +4,20 @@ lvl=`cat /sys/class/power_supply/BAT1/capacity`
 level=$((lvl+0))
 ac=`cat /sys/class/power_supply/ACAD/online`
 isAC=$((ac+0))
+conserv=""
 
+# This is for Lenovo Ideapad or Yoga Slim laptops to indicate if conservation mode is enabled or not.
+# You can delete the section below if you don't need it
+
+#conservation mode starts
 func() {
     value=`cat /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode`
     if [[ $value -eq 1 ]]; then
         echo "󰒘 " && exit 0
     fi
 }
-
 conserv="$(func)"
+#conservation mode ends
 
 if [ $level -ge 99 ]; then
     echo "󰁹 $level"
