@@ -3,6 +3,6 @@
 killall -q xidlehook
 
 xidlehook --detect-sleep --not-when-audio \
- --not-when-fullscreen --timer 300 'backlight_control 50%' 'backlight_control 100%' \
- --timer 60 'slock backlight_control 100%' - \
+ --not-when-fullscreen --timer 300 'light -S 50' 'light -S 100' \
+ --timer 600 'light -S 100; slock' - \
  --timer 540 'systemctl suspend' - & 
