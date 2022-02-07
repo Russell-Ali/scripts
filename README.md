@@ -21,10 +21,11 @@ could look like this on your device:
 ```
 <h3>How to install it though</h3>
 1. Clone the repo:
-```
-git clone https://github.com/Russell-Ali/scripts
 
 ```
+git clone https://github.com/Russell-Ali/scripts
+```
+
 2. Add scripts to your path:
 
 ```
