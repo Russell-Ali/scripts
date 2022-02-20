@@ -1,6 +1,6 @@
 #!/bin/sh
 
-killall -q xidlehook
+pkill xidlehook > /dev/null 2>&1
 
 xidlehook --detect-sleep --not-when-audio \
  --not-when-fullscreen --timer 300 'light -S 50' 'light -S 100' \

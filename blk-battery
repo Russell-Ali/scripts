@@ -1,15 +1,15 @@
 #!/bin/sh
 
-lvl=`cat /sys/class/power_supply/BAT1/capacity`
+lvl=$(cat /sys/class/power_supply/BAT1/capacity)
 level=$((lvl+0))
-ac=`cat /sys/class/power_supply/ACAD/online`
+ac=$(cat /sys/class/power_supply/ACAD/online)
 isAC=$((ac+0))
 conserv=""
 
 #conservation mode starts
 func() {
-    value=`cat /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode`
-    if [[ $value -eq 1 ]]; then
+    value=$(cat /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode)
+    if [ "$value" = "1" ]; then
         echo "󰒘 " && exit 0
     fi
 }
