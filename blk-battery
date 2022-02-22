@@ -17,31 +17,31 @@ conserv="$(func)"
 #conservation mode ends
 
 if [ $level -ge 99 ]; then
-    echo "󰁹 $level"
+    echo "  󰁹 $level  "
 else
     if [ $isAC -eq 1 ]; then
         if [ $level -le 20 ]; then
-            echo "${conserv}󰂆 ${level}%"
+            echo "  ${conserv}󰂆 ${level}%  "
         elif [ $level -le 40 ]; then
-            echo "${conserv}󰂈 ${level}%"
+            echo "  ${conserv}󰂈 ${level}%  "
         elif [ $level -le 60 ]; then
-            echo "${conserv}󰢝 ${level}%"
+            echo "  ${conserv}󰢝 ${level}%  "
         elif [ $level -le 80 ]; then
-            echo "${conserv}󰂉 ${level}%"
+            echo "  ${conserv}󰂉 ${level}%  "
         else
-            echo "${conserv}󰂋 ${level}%"
+            echo "  ${conserv}󰂋 ${level}%  "
         fi
     else
         if [ $level -le 20 ]; then
-            echo "󰁺 ${level}%"
+            echo "  󰁺 ${level}%  "
         elif [ $level -le 40 ]; then
-            echo "󰁼 ${level}%"
+            echo "  󰁼 ${level}%  "
         elif [ $level -le 60 ]; then
-            echo "󰁽 ${level}%"
+            echo "  󰁽 ${level}%  "
         elif [ $level -le 80 ]; then
-            echo "󰂀 ${level}%"
+            echo "  󰂀 ${level}%  "
         else
-            echo "󰂂 ${level}%"
+            echo "  󰂂 ${level}%  "
         fi
     fi
 fi

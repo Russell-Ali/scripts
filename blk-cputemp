@@ -1,3 +1,0 @@
-#!/bin/sh
-
-sensors | grep 'acpitz-acpi-0' -A2 | tail -1 | tr -d '\n\t' | awk '{print "󰔏 "$2}'

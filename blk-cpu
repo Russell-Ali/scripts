@@ -1,0 +1,5 @@
+#!/bin/sh
+
+temp=$(sensors | grep 'acpitz-acpi-0' -A2 | tail -1 | tr -d '\n\t' | awk '{print "󰔏 "$2}')
+perc=$(top -bn1 | grep '%Cpu' | awk '{printf ("'󰧑' %.1f '%'", $2 + $6 + $4 + $12 + $14)}')
+echo "  ${temp}  ${perc}  "

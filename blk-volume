@@ -1,18 +1,18 @@
 #!/bin/sh
 
 mute=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
-[ "$mute" = 'yes' ] && echo 󰖁 && exit
+[ "$mute" = 'yes' ] && echo "  󰖁  " && exit
 
 vol=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | tr -d '\n%')
 
-if [ "$vol" -gt "70" ]; then
+if [ "$vol" -gt 50 ]; then
 	icon="󰕾 "
-elif [ "$vol" -gt "30" ]; then
+elif [ "$vol" -gt 30 ]; then
 	icon="󰖀 "
-elif [ "$vol" -gt "0" ]; then
+elif [ "$vol" -gt 0 ]; then
 	icon="󰕿 "
 else
         echo 󰖁 && exit
 fi
 
-echo "$icon$vol%"
+echo "  $icon$vol%  "

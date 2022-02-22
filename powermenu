@@ -3,11 +3,11 @@
 selection="$(printf 'Cancel\nShutdown\nReboot\nSuspend' | dmenu -c -l 4 -h 28 -fn Dejavu-12 -bw 2)"
 if [ "$selection" = 'Shutdown' ]
 then
-	shutdown -h now
+	sudo poweroff
 elif [ "$selection" = 'Reboot' ]
 then
-	reboot
+	sudo reboot
 elif [ "$selection" = 'Suspend' ]
 then
-    zzz
+    sudo zzz
 fi
