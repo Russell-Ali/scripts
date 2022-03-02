@@ -1,0 +1,11 @@
+#!/bin/sh
+
+[ "$(bluetoothctl show 68:54:5A:1A:0A:0D | grep 'Powered:' | cut -d ' ' -f2)" = "no" ] && exit;
+
+if [ "$(bluetoothctl info)" != "Missing device address argument" ]; then
+    icon=" 󰂰 "
+    name=$(bluetoothctl info|grep "Name" | cut -d " " -f2-9)
+else
+    icon=" 󰂯 "
+fi
+printf "%s" "$icon $name"
