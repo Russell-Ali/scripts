@@ -1,13 +1,10 @@
 #!/bin/sh
 
-status=$(nmcli device show wlp1s0 | grep 'STATE' | awk '{print $3}')
-strength=$(nmcli device show wlp1s0 | grep 'STATE' | awk '{print $2}')
-SSID=$(nmcli device show wlp1s0 | grep 'CONNECTION' | awk '{print $2}')
+info=$(nmcli device show wlp1s0)
+state=$( echo "${info}" | grep 'STATE' | tr -s " " | cut -d " " -f3)
 
-if [ "${status}" = "(connected)" ]
-then
-    echo " ${strength} 󰤨 ${SSID} "
-elif [ "${status}" = "(disconnected)" ]
-then
-    echo " 󰤮 "
-fi
+[ "$state" = "(unavailable)" ] && exit;
+strength=$( echo "${info}" | grep 'STATE' | tr -s " " | cut -d " " -f2)
+SSID=$( echo "${info}" | grep 'CONNECTION' | tr -s " " | cut -d " " -f2)
+
+[ "${state}" = "(connected)" ] && echo " ${strength} 󰤨 ${SSID} " || echo " 󰤯 "
