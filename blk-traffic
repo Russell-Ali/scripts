@@ -12,7 +12,9 @@ update() {
     printf %d\\n $(( sum - old ))
 }
 
-rx=$(update /sys/class/net/wlp1s0/statistics/rx_bytes)
-tx=$(update /sys/class/net/wlp1s0/statistics/tx_bytes)
+rx=$(update /sys/class/net/[ew]*/statistics/rx_bytes)
+tx=$(update /sys/class/net/[ew]*/statistics/tx_bytes)
+rx=$(numfmt --to=iec "$rx")
+tx=$(numfmt --to=iec "$tx")
 
-printf "   %sB  %sB  \n" $(numfmt --to=iec $rx $tx)
+printf "   %sB  %sB  \n" "$rx" "$tx"
