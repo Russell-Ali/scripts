@@ -1,0 +1,4 @@
+#!/bin/sh
+updates=$(pacman -Quq | wc -l)
+[ "$updates" -eq 0 ] && exit
+printf "  %d " "$updates"

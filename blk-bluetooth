@@ -1,6 +1,6 @@
 #!/bin/sh
-
-[ "$(bluetoothctl show 68:54:5A:1A:0A:0D | grep 'Powered:' | cut -d ' ' -f2)" = "no" ] && exit;
+state=$(bluetoothctl show 68:54:5A:1A:0A:0D | grep 'Powered:' | cut -d ' ' -f2)
+[ "${state}" != "yes" ] && exit;
 
 info=$(bluetoothctl info)
 if [ "${info}" = "Missing device address argument" ]; then
