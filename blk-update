@@ -1,4 +1,5 @@
 #!/bin/sh
+pacman -Sy
 updates=$(pacman -Quq | wc -l)
 [ "$updates" -lt 10 ] && exit
 printf "  %d " "$updates"

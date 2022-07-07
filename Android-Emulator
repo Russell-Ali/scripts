@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+$HOME/.android/Android/emulator/emulator @"VirtualAndroid-v1"
